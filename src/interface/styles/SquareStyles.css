@@ -1,0 +1,26 @@
+.square-obfuscated-white {
+    background-color: #efefef;
+}
+.square-obfuscated-black {
+    background-color: #333333;
+}
+.square-light {
+    background-color: #F0D9B5;
+}
+.square-dark {
+    background-color: #B58863;
+}
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    cursor: pointer;
+    border: none;
+    height: 80px; width: 80px;
+}
+
+.board-piece-image {
+    height:100%; width:100%;
+    border: none;
+}

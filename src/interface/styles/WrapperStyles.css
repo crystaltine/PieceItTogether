@@ -1,0 +1,54 @@
+.grid-wrapper {
+    display:flex;
+    flex-direction: row;
+}
+
+.grid {
+    outline: none;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-wrapper {
+    margin-left:20px;
+    height:620px;
+    display:flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(74, 75, 82, 0.196);
+    padding: 0 20px 20px 20px;
+}
+
+.game-wrapper {
+    padding:20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.previous-attempt {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Lexend, Rubik;
+    margin-right:20px;
+}
+
+.attempt-recorder-container {
+    display:flex;
+    width:100%;
+}
+.attempt-history {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Lexend, Rubik;
+}

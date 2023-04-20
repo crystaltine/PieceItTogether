@@ -1,58 +1,32 @@
 import React from 'react';
 import Square from './Square';
-import '../styles/GridStyles.css'
-
-import useState from 'react';
+import '../styles/WrapperStyles.css'
 
 interface GridProps {
-    grid: string[];
-    nextPlayer: string;
-    handleMove: (board: string[], nextPlayer: string) => void;
-    setGrid: React.Dispatch<React.SetStateAction<string[]>>;
-    setPlayer: React.Dispatch<React.SetStateAction<string>>;
+    display: string[];
+    handleMove: (squareID: number, piece: string) => void;
+    gameComplete: boolean;
 }
 
-// TODO 
-
 const GameGrid = (props: GridProps) => {
-
-    function handleClick(index: number) {
-        let newGrid = props.grid.slice();
-        
-        if (newGrid[index] === "") {
-            newGrid[index] = props.nextPlayer;
-            let newPlayer = props.nextPlayer === "X"? "O" : "X";
-
-            props.handleMove(newGrid, newPlayer);
-
-            props.setGrid(newGrid);
-            props.setPlayer(newPlayer);
-            return;
-        }
-    }
-
-
-    // Turn grid (1d array) into 2d array
-    const grid_side_length = Math.sqrt(props.grid.length);
-    const cell_side_length = grid_side_length < 5? 150 : 600.0 / grid_side_length;
-
-    let grid_split: Array<string[]> = [];
-    let splitIndex = grid_side_length;
-
-    while (splitIndex <= props.grid.length) {
-        grid_split.push(props.grid.slice(splitIndex - grid_side_length, splitIndex));
-        splitIndex += grid_side_length;
-    }
-
+    let currSquareCSSClass = "square-light";
     return (
         <div className="grid">
 
-            {grid_split.map((row, index) => {
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+                currSquareCSSClass = currSquareCSSClass === "square-light"? "square-dark" : "square-light";
                 return (
-                    <div key = {index} className="board-row">
-                        {row.map((cell, index2) => {
+                    <div className="board-row">
+                        {props.display.slice(i*8, i*8+8).map((value, j) => {
+                            currSquareCSSClass = currSquareCSSClass === "square-light"? "square-dark" : "square-light";
+
                             return (
-                                <Square side_length={cell_side_length} value={cell} handleClick={() => handleClick(index*grid_side_length+index2)}/>
+                                <Square
+                                value={value}
+                                handleClick={() => {
+                                    props.handleMove(i*8+j, props.display[i][j]);
+                                }}
+                                CSSclass={currSquareCSSClass}/>
                             );
                         })}
                     </div>

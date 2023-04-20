@@ -1,0 +1,48 @@
+.user-control-container {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+}
+
+.submit-button {
+    background-color: #85A94E;
+    border:none;
+    color:white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Lexend, Rubik;
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #8fbe47;
+}
+
+.faded-user-control-button {
+    background-color: #3a3b3e;
+    border:none;
+    height:50px; width:50px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.faded-user-control-button:hover {
+    background-color: #4f5157;
+}
+.transparent-user-control-button {
+    background-color: transparent;
+    border:none;
+    height:50px; width:50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.transparent-user-control-button:hover {
+    background-color: #353839;
+}
+
+.user-ctrl-button-icon {
+    height:24px; width:24px;
+    filter:invert(70%);
+}

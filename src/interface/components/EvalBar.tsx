@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/EvalBarStyles.css';
 
 interface EvalbarProps {
     value: number; // number (0.0 for tic tac toe) or M<mate in m moves> if win for either side

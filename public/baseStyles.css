@@ -1,0 +1,33 @@
+body {
+    background-color: #0c0c10;
+    color:white;
+    font-family: Lexend, Rubik;
+    font-size: 20px;
+}
+
+header {
+    display:flex;
+    top:0%;
+    bottom:93%;
+    position:fixed;
+    background-color: #1a1b1f;
+    width:100vw;
+    justify-content: space-around;
+    z-index:100;
+    align-items: center;
+}
+
+.middle-header {
+    font-size:28px;
+    vertical-align: center;
+}
+
+#root {
+    position:absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    left: 3%; right:3%;
+    top:10%;
+    height:87vh;
+}

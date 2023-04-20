@@ -1,0 +1,11 @@
+.square-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    cursor: pointer;
+    height:40px; width:40px;
+}
+.board-piece-image-secondary {
+    height:40px; width:40px;
+}

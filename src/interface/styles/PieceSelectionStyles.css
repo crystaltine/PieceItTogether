@@ -1,0 +1,21 @@
+.piece-selector {
+    padding:10px;
+    background-color: rgba(65, 67, 73, 0.304);
+}
+.piece-selector-section {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.piece-image {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:10px;
+    height: 80px; width: 80px;
+    cursor: pointer;
+}
+.selected {
+    background-color: rgba(56, 216, 31, 0.598);
+}
