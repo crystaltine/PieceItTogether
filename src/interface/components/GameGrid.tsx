@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Square from './Square';
 import '../styles/WrapperStyles.css'
 

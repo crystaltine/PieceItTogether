@@ -10,8 +10,16 @@ function App() {
 
   function getNewPuzzle() {
     console.log("fetching new puzzle");
-    setFEN("6k1/8/6p1/pp6/6qP/2PQ4/P1K5/8 b - - 1 39");
-    setEvaluation(0.0);
+    
+    fetch("http://127.0.0.1:3003/getrandompos").then((response) => {
+      return response.json();
+    }).then((data) => {
+      console.log(data);
+      setFEN(data.fen);
+      setEvaluation(data.evaluation);
+    }).catch((error) => {
+      console.log(error);
+    });
 
     let newGameUpdater = !gameUpdater;
     setGameUpdater(newGameUpdater);

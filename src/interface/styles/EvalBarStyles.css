@@ -1,9 +1,9 @@
 .eval-bar {
     background-color: rgb(51, 51, 51);
     margin-right:15px;
-    font-size:10px;
+    font-size:60%;
     font-weight: 700;
-    width:20px;
+    width:28px;
     position: relative;
     text-align: center;
 }
@@ -14,7 +14,7 @@
     width:100%;
     background-color: white;
     color:black;
-    font-size:14px;
+    font-size:12px;
     text-align: center;
     font-weight: 700;
     transition-duration:1s;

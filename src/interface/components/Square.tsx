@@ -28,6 +28,7 @@ const urlMap: stringToPieceImage = {
 
 const Square = (props: SquareProps) => {
 
+    // Obfuscated squares - black & white
     if (props.value.slice(0, 3) === "obf") {
         return (
             <div className={`square square-obfuscated-${props.value.slice(4)}`} onClick={() => {
@@ -36,6 +37,19 @@ const Square = (props: SquareProps) => {
                 }}>
             </div>
         )
+    }
+
+    // Hint squares - Green, Yellow, Gray
+    if (props.value.slice(0, 16) === "square-highlight") {
+
+        return (props.value === ""?  (
+            <div className={`square ${props.value.slice(0, 20)}`} onClick={props.handleClick}>
+            </div>
+        ) : (
+            <div className={`square ${props.value.slice(0, 20)}`} onClick={props.handleClick}>
+                <img className="board-piece-image" src={props.value !== ""? urlMap[props.value[props.value.length - 1]] : ""} alt=''></img>
+            </div>
+        ))
     }
     
     let returnValue = props.value === ""?  (

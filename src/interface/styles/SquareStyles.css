@@ -1,8 +1,27 @@
+.square-highlight-gre {
+    background-color: #3bc300;
+    border:none; outline: none;
+}
+.square-highlight-yel {
+    background-color: #dfd92b;
+    border:none; outline: none;
+}
+.square-highlight-gra {
+    background-color: #9a9a9a;
+    border:none; outline: none;
+}
+
 .square-obfuscated-white {
     background-color: #efefef;
 }
+.square-obfuscated-white:hover {
+    background-color: #c4e6ae;
+}
 .square-obfuscated-black {
     background-color: #333333;
+}
+.square-obfuscated-black:hover {
+    background-color: #425436;
 }
 .square-light {
     background-color: #F0D9B5;
@@ -16,7 +35,7 @@
     align-items: center;
     position:relative;
     cursor: pointer;
-    border: none;
+    border: none; outline: none;
     height: 80px; width: 80px;
 }
 

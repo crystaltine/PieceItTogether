@@ -14,10 +14,10 @@ const EvalBar = (props: EvalbarProps) => {
 
     if (props.value >= 10000.0) {
         evalBarHeight = "100%";
-        evalDisplay = (props.value === 10009.0? "1-0" : "M" + (9 - props.value%10000)); // If eval === +- 10009, then game is won, dont display M0 lol
+        evalDisplay = "M" + (props.value-10000);
     } else if (props.value <= -10000.0) {
         evalBarHeight = "0%";
-        evalDisplay = (props.value === -10009.0? "0-1" : "M" + (9 + props.value%10000));
+        evalDisplay = "M" + (-(props.value+10000));
     } else {
         evalBarHeight = (0.9*Math.tanh(0.02*props.value*(Math.abs(props.value)+7))+1)/2 * 100 + "%";
         evalDisplay = Math.abs(props.value).toFixed(props.value >= 10.0? 0 : 1);
@@ -32,7 +32,6 @@ const EvalBar = (props: EvalbarProps) => {
                 width:"100%",
                 backgroundColor: "white",
                 color:"black",
-                fontSize:"14px",
                 textAlign: "center",
                 fontWeight: "700",
                 transition:"1.3s",
