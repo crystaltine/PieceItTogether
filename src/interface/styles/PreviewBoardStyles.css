@@ -1,12 +1,12 @@
-.square-secondary {
+.square-preview {
     display: flex;
     justify-content: center;
     align-items: center;
     position:relative;
     cursor: pointer;
     border: none; outline: none;
-    height:40px; width:40px;
+    height:15px; width:15px;
 }
-.board-piece-image-secondary {
-    height:40px; width:40px;
+.board-piece-image-preview {
+    height:15px; width:15px;
 }

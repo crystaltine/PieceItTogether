@@ -1,32 +1,13 @@
 import React from 'react';
-import SquareSecondary from './SquareSecondary';
-import '../styles/SecondaryBoardStyles.css'
+import SquarePreview from './SquarePreview';
+import '../styles/PreviewBoardStyles.css'
 
 interface GridProps {
     display: string[];
 }
 
-const GameGridSecondary = (props: GridProps) => {
-    if (props.display.length === 0) {
-        return (
-            <div style={{
-                "display": "flex",
-                "justifyContent": "center",
-                "alignItems": "center",
-            }}>
-                <div style={{
-                    "position": "absolute",
-                    "zIndex": "10",
-                }}>No Previous Attempt!</div>
-                <div style={{"filter": "brightness(0.3) contrast(0.9)",}}>
-                    <GameGridSecondary display={Array(64).fill("")}/>
-                </div>
-            </div>
-        )
-    }
-
+const GameGridPreview = (props: GridProps) => {
     let currSquareCSSClass = "square-light";
-
     return (
         <div className="grid">
         {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
@@ -37,7 +18,7 @@ const GameGridSecondary = (props: GridProps) => {
                         currSquareCSSClass = currSquareCSSClass === "square-light"? "square-dark" : "square-light";
 
                         return (
-                            <SquareSecondary
+                            <SquarePreview
                             value={value}
                             CSSclass={currSquareCSSClass}/>
                         );
@@ -49,4 +30,4 @@ const GameGridSecondary = (props: GridProps) => {
     );
 };
 
-export default GameGridSecondary;
+export default GameGridPreview;

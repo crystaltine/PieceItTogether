@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/SecondaryBoardStyles.css'
+import '../styles/PreviewBoardStyles.css'
 
 interface SquareProps {
     value: string;
@@ -25,11 +25,11 @@ const urlMap: stringToPieceImage = {
     "k": "https://www.chess.com/chess-themes/pieces/neo/150/bk.png",
 }
 
-const SquareSecondary = (props: SquareProps) => {
+const SquarePreview = (props: SquareProps) => {
     // Obfuscated squares - black & white
     if (props.value.slice(0, 3) === "obf") {
         return (
-            <div className={`square-secondary square-obfuscated-${props.value.slice(4)}`}>
+            <div className={`square-preview square-obfuscated-${props.value.slice(4)}`}>
             </div>
         )
     }
@@ -38,25 +38,25 @@ const SquareSecondary = (props: SquareProps) => {
     if (props.value.slice(0, 16) === "square-highlight") {
 
         return (props.value === ""?  (
-            <div className={`square-secondary ${props.value.slice(0, 20)}`}>
+            <div className={`square-preview ${props.value.slice(0, 20)}`}>
             </div>
         ) : (
-            <div className={`square-secondary ${props.value.slice(0, 20)}`}>
-                <img className="board-piece-image-secondary" src={props.value !== ""? urlMap[props.value[props.value.length - 1]] : ""} alt=''></img>
+            <div className={`square-preview ${props.value.slice(0, 20)}`}>
+                <img className="board-piece-image-preview" src={props.value !== ""? urlMap[props.value[props.value.length - 1]] : ""} alt=''></img>
             </div>
         ))
     }
     
     let returnValue = props.value === ""?  (
-        <div className={`square-secondary ${props.CSSclass}`}>
+        <div className={`square-preview ${props.CSSclass}`}>
         </div>
     ) : (
-        <div className={`square-secondary ${props.CSSclass}`}>
-            <img className="board-piece-image-secondary" src={props.value !== ""? urlMap[props.value] : ""} alt=''></img>
+        <div className={`square-preview ${props.CSSclass}`}>
+            <img className="board-piece-image-preview" src={props.value !== ""? urlMap[props.value] : ""} alt=''></img>
         </div>
     )
 
     return returnValue;
 };
 
-export default SquareSecondary;
+export default SquarePreview;

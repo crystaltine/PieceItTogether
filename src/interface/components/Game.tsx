@@ -17,15 +17,16 @@ interface GameProps {
 
 const Game = (props: GameProps) => {
     const [currDisplay, setCurrDisplay] = useState(obfuscateBoard(fenToBoard(props.positionFEN)));
-
     const [currSelectedPiece, setCurrSelectedPiece] = useState("none");
-    const [attemptHistory, setAttemptHistory] = useState<string[]>([])
+    const [attemptHistory, setAttemptHistory] = useState<string[]>([]);
+    const [prevDisplay, setPrevDisplay] = useState<string[]>([]);
 
     const correctBoard = fenToBoard(props.positionFEN);
 
     useEffect(() => {
         setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
         setAttemptHistory([]);
+        setPrevDisplay([]);
         setCurrSelectedPiece("none");
     }, [props.positionFEN, props.evaluation]);
 
@@ -80,7 +81,6 @@ const Game = (props: GameProps) => {
             });
             setCurrDisplay(newDisplay);
         } else {
-            setAttemptHistory([...attemptHistory, currDisplay.toString()]);
             setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
             // Handle hinting (highlight correct placements, etc. and put it onto the secondary board)
             // Also add to attempt history
@@ -88,10 +88,9 @@ const Game = (props: GameProps) => {
             fetch(`http://127.0.0.1:3003/highlightsubm/${currDisplay.toString()}/${correctBoard.toString()}`).then((response) => {
                 return response.json();
             }).then((data) => {
-
-                console.log(data['highlighted']);
                 let newDisplay = data['highlighted'];
-                console.log(newDisplay);
+                setAttemptHistory([...attemptHistory, newDisplay.toString()]);
+                setPrevDisplay(newDisplay);
                 setCurrDisplay(newDisplay);
             }).catch((error) => {
                 console.log(error);
@@ -106,8 +105,8 @@ const Game = (props: GameProps) => {
             </div>
             <div className="side-wrapper">
                 <div className="attempt-recorder-container">
-                    <div className="previous-attempt">Previous Attempt
-                        <GameGridSecondary positionFEN={props.positionFEN}/>
+                    <div className="previous-attempt">
+                        <GameGridSecondary display={prevDisplay}/>
                     </div>
                     <div className="attempt-history">
                         <AttemptHistory attemptHistory={attemptHistory} gameComplete={props.isComplete}/>
