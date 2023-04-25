@@ -1,6 +1,5 @@
-import React from 'react';
-import SquareSecondary from './SquareSecondary';
-import '../styles/SecondaryBoardStyles.css'
+import '../styles/SquareStyles.css'
+import Square from './Square';
 
 interface GridProps {
     display: string[];
@@ -43,9 +42,10 @@ const GameGridSecondary = (props: GridProps) => {
                             currSquareCSSClass = currSquareCSSClass === "square-light"? "square-dark" : "square-light";
 
                             return (
-                                <SquareSecondary
+                                <Square
                                 value={value}
-                                CSSclass={currSquareCSSClass}/>
+                                CSSclass={currSquareCSSClass}
+                                type="-secondary"/>
                             );
                         })}
                     </div>

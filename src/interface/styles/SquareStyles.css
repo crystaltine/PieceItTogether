@@ -57,13 +57,14 @@
 }
 
 
-
 .square-light {
     background-color: #F0D9B5;
 }
 .square-dark {
     background-color: #B58863;
 }
+
+
 .square {
     display: flex;
     justify-content: center;
@@ -72,8 +73,29 @@
     border: none; outline: none;
     height: 80px; width: 80px;
 }
-
 .board-piece-image {
     height:100%; width:100%;
     border: none;
+}
+.square-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    border: none; outline: none;
+    height:40px; width:40px;
+}
+.board-piece-image-secondary {
+    height:40px; width:40px;
+}
+.square-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    border: none; outline: none;
+    height:16px; width:16px;
+}
+.board-piece-image-preview {
+    height:16px; width:16px;
 }

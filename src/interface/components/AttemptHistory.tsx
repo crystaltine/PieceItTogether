@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/PreviousAttemptStyles.css';
-
 import { undoToString } from '../../utils/utils';
-import GameGridPreview from './GameGridPreview';
+import GameGrid from './GameGrid';
 
 interface AttemptHistoryProps {
     attemptHistory: string[];
     focusAttempt: (attemptIndex: number) => void;
+    handleClick: (squareID: number, piece: string) => void;
 }
 
 const AttemptHistory = (props: AttemptHistoryProps) => {
@@ -39,7 +39,7 @@ const AttemptHistory = (props: AttemptHistoryProps) => {
                             "margin": "2px 0",
                             "padding": "0px -2px"
                         }}> Attempt {index + 1} </span>
-                        <GameGridPreview display={display}/>
+                        <GameGrid type="-preview" handleMove={props.handleClick} display={display}/>
                     </div>
                 );
             })

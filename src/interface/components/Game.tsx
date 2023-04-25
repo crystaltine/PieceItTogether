@@ -3,11 +3,11 @@ import GameGrid from './GameGrid';
 import EvalBar from './EvalBar';
 import PieceSelection from './PieceSelection';
 import UserControls from './UserControls';
-import GameGridSecondary from './GameGridSecondary';
-import '../styles/WrapperStyles.css';
 import AttemptHistory from './AttemptHistory';
 import { fenToBoard, obfuscateBoard } from '../../utils/utils';
 import GameInfoBar from './GameInfoBar';
+import '../styles/WrapperStyles.css';
+import GameGridSecondary from './GameGridSecondary';
 
 interface GameProps {
     positionFEN: string;
@@ -186,7 +186,7 @@ const Game = (props: GameProps) => {
             <div className='game-wrapper'>
                 <div className="grid-wrapper">
                     <EvalBar value={props.evaluation}/>
-                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement}/>
+                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type=""/>
                 </div>
                 <div className="side-wrapper">
                     <div className="attempt-recorder-container">
@@ -194,7 +194,7 @@ const Game = (props: GameProps) => {
                             <GameGridSecondary display={prevDisplay} attemptIndex={focusIndex}/>
                         </div>
                         <div className="attempt-history">
-                            <AttemptHistory focusAttempt={focusPrevAttempt} attemptHistory={attemptHistory}/>
+                            <AttemptHistory focusAttempt={focusPrevAttempt} handleClick={handlePiecePlacement} attemptHistory={attemptHistory}/>
                         </div>
                     </div>
                     <PieceSelection submitClicked={handleClickToSelectPiece} currSelected={currSelectedPiece}/>

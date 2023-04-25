@@ -25,17 +25,7 @@ const EvalBar = (props: EvalbarProps) => {
 
     return (
         <div className="eval-bar">
-            <div style={{
-                height: evalBarHeight,
-                position:"absolute",
-                bottom:0,
-                width:"100%",
-                backgroundColor: "white",
-                color:"black",
-                textAlign: "center",
-                fontWeight: "700",
-                transition:"1.3s",
-                transitionTimingFunction: "cubic-bezier(.33,1,.68,1)"}}></div>
+            <div style={{height: evalBarHeight}} className="eval-bar-height"></div>
             <span className={evalStyleClass}>{evalDisplay}</span>
         </div>
     );
