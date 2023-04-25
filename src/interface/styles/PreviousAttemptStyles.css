@@ -1,20 +1,58 @@
 .attempts-list {
     display:flex;
     flex-direction: column;
+    gap: 10px;
+    padding:2px 0;
     align-items: center;
-    justify-content: space-evenly;
     font-size: 12px;
     font-weight: 400;
     font-family: Lexend, Rubik;
+    height: calc(100% - 20px);
+    overflow-y: scroll;
+}
+.attempts-list-wrapper-border {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     height:100%;
     width:100%;
-    background-color: rgba(73, 75, 79, 0.149);
+    background-color: rgba(73, 75, 79, 0.293);
 }
 
 .attempts-list-title {
+    color:rgba(255, 255, 255, 0.307);
+    text-align: center;
     font-size: 14px;
     font-weight: 400;
     margin:0; padding:0;
     font-family: Lexend, Rubik;
-    border-bottom:1px solid white;
+}
+.attempt-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #6c6d7e53;
+    z-index: 3;
+}
+.attempt-container:hover {
+    background-color:rgba(127, 129, 139, 0.631);
+    outline:2px solid white;
+    z-index: 5;
+}
+.attempt-container:active {
+    filter: brightness(0.9);
+}
+
+
+.focused-attempt-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #7478879a;
+}
+.focused-attempt-title {
+    color:rgb(82, 133, 226);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin:0; padding:0;
+    font-family: Lexend, Rubik;
 }

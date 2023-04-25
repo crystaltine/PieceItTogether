@@ -1,28 +1,63 @@
 .square-highlight-gre {
-    background-color: #3bc300;
+    background-color: #5fc252;
     border:none; outline: none;
+    cursor: pointer;
+}
+.square-highlight-gre:hover {
+    box-shadow: 0 0 15px rgba(11, 47, 3, 0.432) inset;
 }
 .square-highlight-yel {
-    background-color: #dfd92b;
+    background-color: #e0d756;
     border:none; outline: none;
+    cursor: pointer;
+}
+.square-highlight-yel:hover {
+    box-shadow: 0 0 15px rgba(49, 49, 2, 0.432) inset;
 }
 .square-highlight-gra {
-    background-color: #9a9a9a;
+    background-color: #868686;
     border:none; outline: none;
+    cursor: pointer;
+}
+.square-highlight-gra:hover {
+    box-shadow: 0 0 15px rgba(35, 35, 35, 0.432) inset;
+}
+/* magenta for solution revealed squares */
+.square-highlight-mag {
+    background-color: #b650b3;
+    border:none; outline: none;
+    cursor: pointer;
+}
+.square-highlight-mag:hover {
+    box-shadow: 0 0 15px rgba(45, 7, 56, 0.432) inset;
+}
+/* magenta for hinted squares */
+.square-highlight-blu { 
+    background-color: #5696c9;
+    border:none; outline: none;
+    cursor: pointer;
+}
+.square-highlight-blu:hover {
+    box-shadow: 0 0 15px rgba(2, 35, 62, 0.432) inset;
 }
 
 .square-obfuscated-white {
     background-color: #efefef;
+    cursor: pointer;
 }
 .square-obfuscated-white:hover {
-    background-color: #c4e6ae;
+    box-shadow: 0 0 15px rgba(22, 22, 22, 0.432) inset;
 }
 .square-obfuscated-black {
     background-color: #333333;
+    cursor: pointer;
 }
 .square-obfuscated-black:hover {
-    background-color: #425436;
+    box-shadow: 0 0 15px rgba(233, 233, 233, 0.432) inset;
 }
+
+
+
 .square-light {
     background-color: #F0D9B5;
 }
@@ -34,7 +69,6 @@
     justify-content: center;
     align-items: center;
     position:relative;
-    cursor: pointer;
     border: none; outline: none;
     height: 80px; width: 80px;
 }

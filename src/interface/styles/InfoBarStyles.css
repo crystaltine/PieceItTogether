@@ -1,0 +1,75 @@
+.info-bar-container {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    padding:10px 0;
+    background-color: rgba(93, 95, 104, 0.286);
+    border-radius: 10px;
+}
+
+.white-to-move {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-left:10px;
+    font-family: Lexend, Rubik;
+    font-size:25px;
+    font-weight:500;
+}
+.black-to-move {
+    display:flex;
+    align-items: center;
+    gap:10px;
+    margin-left:10px;
+    font-family: Lexend, Rubik;
+    font-size:25px;
+    font-weight:500;
+}
+
+.visual-white-to-move {
+    background-color: rgb(211, 211, 211);
+    width:30px; height:30px;
+    border-radius: 5px;
+}
+.visual-black-to-move {
+    background-color: rgb(70, 70, 70);
+    width:30px; height:30px;
+    border-radius: 5px;
+}
+
+.previous-attempt-info {
+    display:flex;
+    align-items: center;
+    margin-right:10px;
+    font-family: Lexend, Rubik;
+    font-size:16px;
+    font-weight:400;
+    color:rgba(211, 214, 226, 0.584);
+    gap:10px;
+}
+
+.attempt-number {
+    font-family: Lexend, Rubik;
+    font-size:25px;
+    font-weight:500;
+    color:white;
+}
+
+.attempt-checkbox {
+    height:27px;
+    width:27px;
+    background-color: transparent;
+    border: 3px solid rgba(211, 214, 226, 0.584);
+    border-radius: 5px;
+}
+.attempt-checkbox-filled {
+    height:27px;
+    width:27px;
+    border: 3px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.attempt-checkbox-filled:hover {
+    filter: brightness(1.2);
+}

@@ -1,3 +1,12 @@
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+
+
 .grid-wrapper {
     display:flex;
     flex-direction: row;
@@ -20,12 +29,11 @@
     
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(77, 79, 90, 0.196);
-    padding: 20px;
+    background-color: rgba(93, 95, 104, 0.286);
+    padding: 10px 20px;
 }
 
 .game-wrapper {
-    padding:20px;
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -42,9 +50,11 @@
 .attempt-recorder-container {
     display:flex;
     width:100%;
+    height:56.5%;
 }
 .attempt-history {
     width:100%;
+    height:100%;
     display:flex;
     flex-direction: column;
     align-items: center;

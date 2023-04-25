@@ -4,13 +4,9 @@ import '../styles/PieceSelectionStyles.css'
 interface PieceSelectionProps {
     submitClicked: (piece: string) => void;
     currSelected: string;
-    gameComplete: boolean;
 }
 
 const PieceSelection = (props: PieceSelectionProps) => {
-
-    const gameComplete = props.gameComplete;
-
     interface stringToPieceImage {
         [key: string]: string;
     }

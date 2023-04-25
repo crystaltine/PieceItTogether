@@ -3,10 +3,9 @@
     justify-content: center;
     align-items: center;
     position:relative;
-    cursor: pointer;
     border: none; outline: none;
-    height:15px; width:15px;
+    height:16px; width:16px;
 }
 .board-piece-image-preview {
-    height:15px; width:15px;
+    height:16px; width:16px;
 }

@@ -5,7 +5,6 @@ import '../styles/WrapperStyles.css'
 interface GridProps {
     display: string[];
     handleMove: (squareID: number, piece: string) => void;
-    gameComplete: boolean;
 }
 
 const GameGrid = (props: GridProps) => {

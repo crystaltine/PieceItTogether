@@ -6,18 +6,36 @@
 }
 
 .submit-button {
-    background-color: #85A94E;
+    background-color: #5fc252;
     border:none;
     color:white;
     font-size: 20px;
     font-weight: 400;
     font-family: Lexend, Rubik;
-    padding: 15px 40px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    width:150px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #69d05b;
+}
+
+.continue-button {
+    background-color: #b650b3;
+    border:none;
+    color:white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Lexend, Rubik;
+    padding: 10px 0px;
+    width:150px;
     border-radius: 5px;
     cursor: pointer;
 }
-.submit-button:hover {
-    background-color: #8fbe47;
+.continue-button:hover {
+    background-color: #d774e2;
 }
 
 .faded-user-control-button {
