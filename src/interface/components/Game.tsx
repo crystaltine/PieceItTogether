@@ -13,6 +13,7 @@ interface GameProps {
     positionFEN: string;
     evaluation: number;
     fetchNewPuzzle: () => void;
+    themes: string[];
 }
 
 function pruneHighlightedBoard(board: string[]) {
@@ -43,7 +44,7 @@ const Game = (props: GameProps) => {
         setPrevDisplay([]);
         setCurrSelectedPiece("none");
         setIsComplete(false);
-    }, [props.positionFEN, props.evaluation]);
+    }, [props.positionFEN, props.evaluation, props.themes]);
 
     function handleBoardReset() {
         setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
@@ -186,15 +187,15 @@ const Game = (props: GameProps) => {
             <div className='game-wrapper'>
                 <div className="grid-wrapper">
                     <EvalBar value={props.evaluation}/>
-                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type=""/>
+                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type="" themes={props.themes}/>
                 </div>
                 <div className="side-wrapper">
                     <div className="attempt-recorder-container">
                         <div className="previous-attempt">
-                            <GameGridSecondary display={prevDisplay} attemptIndex={focusIndex}/>
+                            <GameGridSecondary display={prevDisplay} attemptIndex={focusIndex} themes={props.themes}/>
                         </div>
                         <div className="attempt-history">
-                            <AttemptHistory focusAttempt={focusPrevAttempt} handleClick={handlePiecePlacement} attemptHistory={attemptHistory}/>
+                            <AttemptHistory focusAttempt={focusPrevAttempt} handleClick={handlePiecePlacement} attemptHistory={attemptHistory} themes={props.themes}/>
                         </div>
                     </div>
                     <PieceSelection submitClicked={handleClickToSelectPiece} currSelected={currSelectedPiece}/>

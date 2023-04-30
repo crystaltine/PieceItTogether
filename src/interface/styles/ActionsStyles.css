@@ -6,7 +6,7 @@
 }
 
 .submit-button {
-    background-color: #5fc252;
+    background-color: #52b345;
     border:none;
     color:white;
     font-size: 20px;
@@ -19,7 +19,7 @@
 }
 
 .submit-button:hover {
-    background-color: #69d05b;
+    background-color: #5dc350;
 }
 
 .continue-button {

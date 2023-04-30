@@ -7,6 +7,7 @@ interface AttemptHistoryProps {
     attemptHistory: string[];
     focusAttempt: (attemptIndex: number) => void;
     handleClick: (squareID: number, piece: string) => void;
+    themes: string[];
 }
 
 const AttemptHistory = (props: AttemptHistoryProps) => {
@@ -39,7 +40,7 @@ const AttemptHistory = (props: AttemptHistoryProps) => {
                             "margin": "2px 0",
                             "padding": "0px -2px"
                         }}> Attempt {index + 1} </span>
-                        <GameGrid type="-preview" handleMove={props.handleClick} display={display}/>
+                        <GameGrid type="-preview" handleMove={props.handleClick} display={display} themes={props.themes}/>
                     </div>
                 );
             })
