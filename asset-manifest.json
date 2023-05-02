@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PieceItTogether/static/css/main.6e8661e3.css",
+    "main.js": "/PieceItTogether/static/js/main.2c875971.js",
+    "index.html": "/PieceItTogether/index.html",
+    "main.6e8661e3.css.map": "/PieceItTogether/static/css/main.6e8661e3.css.map",
+    "main.2c875971.js.map": "/PieceItTogether/static/js/main.2c875971.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e8661e3.css",
+    "static/js/main.2c875971.js"
+  ]
+}
