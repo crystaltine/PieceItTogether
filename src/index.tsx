@@ -74,7 +74,7 @@ root.render(
       <p>Each puzzle is a random position with all pieces covered.
       Each square is either empty, colored white, or colored black.
       White squares are hiding white pieces behind them, black squares are hiding black pieces.
-      You are given the evaluation of the position. Generally, the position will be highly in favor of one side.</p>
+      You will be given the evaluation of the position in a future update. However, keep in mind that it will always be highly in favor of one side.</p>
 
       <h3>Your goal is to guess the position exactly!</h3>
 

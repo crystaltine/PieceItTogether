@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import GameGrid from './GameGrid';
-import EvalBar from './EvalBar';
 import PieceSelection from './PieceSelection';
 import UserControls from './UserControls';
 import AttemptHistory from './AttemptHistory';
@@ -11,7 +10,6 @@ import GameGridSecondary from './GameGridSecondary';
 
 interface GameProps {
     positionFEN: string;
-    evaluation: number;
     fetchNewPuzzle: () => void;
     themes: string[];
 }
@@ -44,7 +42,7 @@ const Game = (props: GameProps) => {
         setPrevDisplay([]);
         setCurrSelectedPiece("none");
         setIsComplete(false);
-    }, [props.positionFEN, props.evaluation, props.themes]);
+    }, [props.positionFEN, props.themes]);
 
     function handleBoardReset() {
         setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
@@ -186,7 +184,6 @@ const Game = (props: GameProps) => {
             <GameInfoBar playerToMove={playerToMove} attemptCount={attemptHistory.length} focusOnAttempt={focusPrevAttempt} boardStateHistory={attemptHistory}/>
             <div className='game-wrapper'>
                 <div className="grid-wrapper">
-                    <EvalBar value={props.evaluation}/>
                     <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type="" themes={props.themes}/>
                 </div>
                 <div className="side-wrapper">
