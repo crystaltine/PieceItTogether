@@ -138,7 +138,7 @@ const Game = (props: GameProps) => {
         } else {
             setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
 
-            fetch(`http://127.0.0.1:3003/highlightsubm/${currDisplay.toString()}/${correctBoard.toString()}`).then((response) => {
+            fetch(`https://a3uvljvwqa.execute-api.us-east-1.amazonaws.com/Prod/hello?op=highlight&subm=${currDisplay.toString()}&ans=${correctBoard.toString()}`).then((response) => {
                 return response.json();
             }).then((data) => {
                 let newDisplay = data['highlighted'];
