@@ -12,7 +12,7 @@ function App(props: AppProps) {
   const [FEN, setFEN] = React.useState("");
 
   function getNewPuzzle() {
-    console.log("hi -1");
+    console.log("fetching new puzzle");
     fetch("https://a3uvljvwqa.execute-api.us-east-1.amazonaws.com/Prod/hello?op=fetchrandom", 
       {
         method: 'GET',
@@ -20,14 +20,10 @@ function App(props: AppProps) {
           "Content-type": "application/json"
         },
       }).then((response) => {
-      console.log("hi");
       return response.json();
     }).then((data) => {
-      console.log(data);
-      console.log(data.fen);
       setFEN(data.fen);
     }).catch((error) => {
-      console.log(error);
     });
   }
 

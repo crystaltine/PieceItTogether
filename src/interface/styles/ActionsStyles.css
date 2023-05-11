@@ -21,6 +21,9 @@
 .submit-button:hover {
     background-color: #5dc350;
 }
+.submit-button:active {
+    background-color: #6dd35f;
+}
 
 .continue-button {
     background-color: #b650b3;
@@ -36,6 +39,9 @@
 }
 .continue-button:hover {
     background-color: #d774e2;
+}
+.continue-button:active {
+    background-color: #df91f8;
 }
 
 .faded-user-control-button {
