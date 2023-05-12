@@ -41,6 +41,10 @@
     box-shadow: 0 0 15px rgba(2, 35, 62, 0.432) inset;
 }
 
+.square-highlight-red {
+    box-shadow: 0 0 25px rgba(250, 47, 1, 0.774) inset;
+}
+
 .square-obfuscated-white {
     background-color: #efefef;
     cursor: pointer;
@@ -55,6 +59,11 @@
 .square-obfuscated-black:hover {
     box-shadow: 0 0 15px rgba(233, 233, 233, 0.432) inset;
 }
+.occupied-square:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(19, 19, 19, 0.653) inset;
+}
+
 
 .square {
     display: flex;

@@ -6,6 +6,7 @@ interface GridProps {
     handleMove: (squareID: number, piece: string) => void;
     type: string;
     themes: string[]
+    highlightIncomplete?: boolean;
 }
 
 const GameGrid = (props: GridProps) => {
@@ -18,10 +19,11 @@ const GameGrid = (props: GridProps) => {
 
                             return (
                                 <Square
+                                highlightIncomplete={props.highlightIncomplete}
                                 value={value}
                                 handleClick={(props.type === ""? () => props.handleMove(i*8+j, props.display[i][j]) : undefined)}
                                 type={props.type}
-                                isDarkSquare={(i+j)%2 === 0}
+                                isDarkSquare={(i+j)%2 === 1}
                                 themes={props.themes}/>
                             );
                         })}

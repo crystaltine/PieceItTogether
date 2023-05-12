@@ -15,7 +15,7 @@ interface GameProps {
 }
 
 function pruneHighlightedBoard(board: string[]) {
-    let prunedBoard = []
+    let prunedBoard = [];
     for (let i = 0; i < board.length; i++) {
         prunedBoard.push(board[i][board[i].length-1]);
     }
@@ -30,8 +30,10 @@ const Game = (props: GameProps) => {
     const [currSelectedPiece, setCurrSelectedPiece] = useState("none");
     const [attemptHistory, setAttemptHistory] = useState<string[]>([]);
     const [prevDisplay, setPrevDisplay] = useState<string[]>([]);
-    const [isComplete, setIsComplete] = useState(false);
     const [focusIndex, setFocusIndex] = useState(-1);
+    const [gameState, setGameState] = useState(0); // 0 - incomplete, 1 - complete, 2 - fail
+    const [highlightIncomplete, setHighlightIncomplete] = useState(false);
+    const [canSkip, setCanSkip] = useState(false);
 
     const correctBoard = fenToBoard(props.positionFEN);
     const playerToMove = props.positionFEN.split(" ")[1];
@@ -41,8 +43,19 @@ const Game = (props: GameProps) => {
         setAttemptHistory([]);
         setPrevDisplay([]);
         setCurrSelectedPiece("none");
-        setIsComplete(false);
+        setGameState(0);
+
+        setCanSkip(false);
+        setTimeout(() => {
+            setCanSkip(true);
+            console.log("skipping enabled");
+        }, 10000);
+
     }, [props.positionFEN, props.themes]);
+
+    useEffect(() => {
+        setHighlightIncomplete(false);
+    }, [currDisplay]);
 
     function handleBoardReset() {
         setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
@@ -113,11 +126,13 @@ const Game = (props: GameProps) => {
     function onSubmit() {
         if (currDisplay.includes("obf-white") || currDisplay.includes("obf-black")) {
 
-            // TODO: Signal Incomplete puzzle
+            setHighlightIncomplete(false);
+            setHighlightIncomplete(true);
 
             return;
         }
 
+        // Correct submission
         if (pruneHighlightedBoard(currDisplay).toString() === correctBoard.toString()) {
             let newDisplay = [...currDisplay];
             currDisplay.forEach((value, index) => {
@@ -134,8 +149,14 @@ const Game = (props: GameProps) => {
             setFocusIndex(attemptHistory.length);
             setPrevDisplay(newDisplay);
             setCurrDisplay(newDisplay);
-            setIsComplete(true);
+            setGameState(1);
+
+        // incorrect submission
         } else {
+            if (attemptHistory.length === 5) {
+                setGameState(2);
+            }
+
             setCurrDisplay(obfuscateBoard(fenToBoard(props.positionFEN)));
 
             fetch(`https://a3uvljvwqa.execute-api.us-east-1.amazonaws.com/Prod/hello?op=highlight&subm=${currDisplay.toString()}&ans=${correctBoard.toString()}`).then((response) => {
@@ -176,7 +197,7 @@ const Game = (props: GameProps) => {
         }
 
         setCurrDisplay(solutionDisplay);
-        setIsComplete(true);
+        setGameState(1);
     }
 
     return (
@@ -184,7 +205,7 @@ const Game = (props: GameProps) => {
             <GameInfoBar playerToMove={playerToMove} attemptCount={attemptHistory.length} focusOnAttempt={focusPrevAttempt} boardStateHistory={attemptHistory}/>
             <div className='game-wrapper'>
                 <div className="grid-wrapper">
-                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type="" themes={props.themes}/>
+                    <GameGrid display={currDisplay} handleMove={handlePiecePlacement} type="" themes={props.themes} highlightIncomplete={highlightIncomplete}/>
                 </div>
                 <div className="side-wrapper">
                     <div className="attempt-recorder-container">
@@ -198,15 +219,14 @@ const Game = (props: GameProps) => {
                     <PieceSelection submitClicked={handleClickToSelectPiece} currSelected={currSelectedPiece}/>
                     <UserControls
                         gameFEN={props.positionFEN}
-                        gameComplete={isComplete}
+                        gameState={gameState}
                         submitClicked={onSubmit}
                         resetBoard={handleBoardReset}
                         showHint={showHint}
                         showSolution={showSolution}
-                        nextPuzzle={() => {
-                            props.fetchNewPuzzle();
-                        }
-                    }/>
+                        nextPuzzle={() => { props.fetchNewPuzzle() }}
+                        canSkip={canSkip}
+                    />
                 </div>
             </div>
         </div>

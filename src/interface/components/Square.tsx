@@ -9,6 +9,7 @@ interface SquareProps {
     handleClick?: () => void;
     type: string;
     themes: string[];
+    highlightIncomplete?: boolean;
 
     /**
      * @param value conveys info about the square display, possible examples: K, r, obf-black, square-highlight-blu P, square-highlight-yel b
@@ -28,7 +29,9 @@ const Square = (props: SquareProps) => {
     // Obfuscated squares - black & white
     if (props.value.slice(0, 3) === "obf") {
         return (
-            <div className={`square${props.type} square-obfuscated-${props.value.slice(4)}`} onClick={props.type === ""? props.handleClick : undefined}>
+            <div
+                className={`square${props.type} square-obfuscated-${props.value.slice(4)}${props.highlightIncomplete? " square-highlight-red" : ""}`}
+                onClick={props.type === ""? props.handleClick : undefined}>
             </div>
         )
     }
@@ -52,7 +55,7 @@ const Square = (props: SquareProps) => {
         </div>
     ) : (
         <div
-            className={className}
+            className={`${className} occupied-square`}
             style={className === `square${props.type}`? {backgroundColor: squareColor} : {}}
             onClick={props.type === ""? props.handleClick : undefined}>
             <img className={`board-piece-image${props.type}`} src={pieceURLMap(props.themes[1])[props.value[props.value.length - 1]]} alt=''></img>

@@ -18,6 +18,26 @@
     cursor: pointer;
 }
 
+.show-solution-button {
+    background-color: #bc872b;
+    border:none;
+    color:white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Lexend, Rubik;
+    padding: 10px 0px;
+    border-radius: 5px;
+    width:150px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #ce9b42;
+}
+.submit-button:active {
+    background-color: #e3a842;
+}
+
+
 .submit-button:hover {
     background-color: #5dc350;
 }
@@ -64,6 +84,15 @@
 }
 .transparent-user-control-button:hover {
     background-color: #353839;
+}
+
+.disabled-button {
+    background-color: transparent;
+    border:none;
+    filter: brightness(0.5);
+    height:50px; width:50px;
+    border-radius: 5px;
+    cursor: not-allowed;
 }
 
 .user-ctrl-button-icon {
