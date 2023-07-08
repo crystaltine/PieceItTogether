@@ -57,7 +57,7 @@ if (!navigator.userAgent.match("Mobile") && !navigator.userAgent.match("Tablet")
             
           </button>
           <button className="header-button">
-              <a href="https://github.com/hogridr/PieceItTogether" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/crystaltine/PieceItTogether" target="_blank" rel="noopener noreferrer">
                 <img src="https://www.svgrepo.com/show/512317/github-142.svg" className="header-button-img" alt="Github"></img>
               </a>
           </button>
