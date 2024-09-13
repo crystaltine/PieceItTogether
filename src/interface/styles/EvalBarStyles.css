@@ -1,9 +1,9 @@
 .eval-bar {
     background-color: rgb(51, 51, 51);
     margin-right:20px;
-    font-size:50%;
+    font-size:55%;
     font-weight: 500;
-    width:20px;
+    width:24px;
     position: relative;
     text-align: center;
 }
@@ -21,14 +21,14 @@
 .white-eval-number {
     color:white;
     position: absolute;
-    top:2px;
+    top:4px;
     right:0;
     left:0;
 }
 .black-eval-number {
     color:rgb(0, 0, 0);
     position: absolute;
-    bottom:2px;
+    bottom:4px;
     right:0;
     left:0;
 }

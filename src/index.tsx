@@ -115,5 +115,11 @@ if (!navigator.userAgent.match("Mobile") && !navigator.userAgent.match("Tablet")
       <App boardTheme={boardTheme} pieceTheme={pieceTheme}/>
     </React.StrictMode>
   );
+} else {
+  root.render(
+    <React.StrictMode>
+      <div>Sorry! This application is currently not compatible with mobile browsers. Please use a desktop device to play!</div>
+    </React.StrictMode>
+  );
 }
 

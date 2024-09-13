@@ -2,6 +2,11 @@ function isNumeric(str: string) {
     return !isNaN(parseFloat(str))
 }
 
+/**
+ * Converts a FEN string to a board state.
+ * 
+ * Boad state format: ["", "", "", "P", "R", ... etc]
+ */
 const fenToBoard = (fen: string) => {
     let boardPosition: string[] = fen.split(" ")[0].split("/").join("").split("");
     for (let i = 0; i < boardPosition.length; i++) {

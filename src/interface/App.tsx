@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { Game } from './components/Game';
 
+const randomPositionEndpoint = 'https://api.chess.com/pub/puzzle/random';
+
 interface AppProps {
   boardTheme: string;
   pieceTheme: string;
@@ -12,18 +14,16 @@ function App(props: AppProps) {
   const [FEN, setFEN] = React.useState("");
 
   function getNewPuzzle() {
-    console.log("fetching new puzzle");
-    fetch("https://a3uvljvwqa.execute-api.us-east-1.amazonaws.com/Prod/hello?op=fetchrandom", 
-      {
-        method: 'GET',
-        headers: {
-          "Content-type": "application/json"
-        },
-      }).then((response) => {
-      return response.json();
-    }).then((data) => {
+    console.log("fetching new puzzle (getnewpuzzle)");
+    fetch(randomPositionEndpoint)
+    .then(res => res.json())
+    .then((data) => {
+
+      console.log(`NEW PUZZLE FETCHED: ${data.fen}`);
       setFEN(data.fen);
+
     }).catch((error) => {
+      console.log(`ERROR IN FETCHING NEW PUZZLE: ${error}`);
     });
   }
 

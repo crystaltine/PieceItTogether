@@ -33,7 +33,7 @@ const AttemptHistory = (props: AttemptHistoryProps) => {
             {props.attemptHistory.map((attempt, index) => {
                 let display = undoToString(attempt);
                 return (
-                    <div className='attempt-container' onClick={() => props.focusAttempt(index)}>
+                    <div key={index} className='attempt-container' onClick={() => props.focusAttempt(index)}>
                         <span style={{
                             "color": "white",
                             "textAlign": "center",
