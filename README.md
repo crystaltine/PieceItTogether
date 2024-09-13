@@ -1,7 +1,8 @@
-# real chessle thats better than that opening one
+# PieceItTogether
 
-idea wise, not code wise (this is a mess)
+Gets a random chess position from chess.com's database and obfuscates the pieces.
 
-gets a random chess position (with some filters) and obfuscates the pieces.
-you have to guess what the piece configuration is
-will give you hints (similar to wordle) i think probably idk (yep)
+The premise of the game is to guess the exact placement of every piece within 6 tries. It's kind of like Wordle.
+
+[Try it here](https://crystaltine.github.io/PieceItTogether/)
+^ NOTE: It's currently not working because my AWS server shut down due to activity... I'll probably fix this in the next ten years.
